@@ -1,0 +1,349 @@
+{
+	"1808":
+	{
+		"YearsPerSecond":1,
+		"CreateSwirlEveryXYears":false,
+		"HintClickAnimalVisible":false,
+		"HintDragTimelineVisible":false,
+		"StatsVisible":false,
+		"TimelineVisible":false,
+		"MosaicVisible": false,
+		"SolutionVisible": false,
+		"RestartButtonVisible": false,
+		"Music": "Audio/AcidicOcean_AMB_Intro.mp3",
+		"Music2": "",
+		"Subtitle":"",
+		"VoiceAudio":"Audio/AcidicOcean_VOICE_Intro.mp3",
+		"DebrisColours": [
+		[0.03,0.25,0.51],
+		[0.03,0.41,0.67],
+		[0.17,0.55,0.75],
+		[0.31,0.70,0.83],
+		[0.79,0.91,0.95],
+		[0.03,0.25,0.51],
+		[0.03,0.41,0.67],
+		[0.17,0.55,0.75],
+		[0.31,0.70,0.83],
+		[0.79,0.91,0.95]
+		],
+		"OceanColours":[
+		[0.79,0.91,0.95],
+		[0.31,0.70,0.83],
+		[0.17,0.55,0.75],
+		[0.03,0.41,0.67],
+		[0.03,0.25,0.51],
+		[0.03,0.25,0.51],
+		[0.03,0.41,0.67],
+		[0.17,0.55,0.75],
+		[0.31,0.70,0.83],
+		[0.79,0.91,0.95]
+		]
+	},
+
+	"1810":
+	{
+		"Subtitle":"EVERY  <strong>  SECOND BREATH </strong> WE TAKE COMES FROM THE <strong>OCEAN</strong>"
+	},
+	"1814":
+	{
+		"Subtitle":" "
+	},
+	"1816":
+	{
+		"Subtitle":"BUT THIS WON’T BE FOR  <strong>  MUCH LONGER  </strong> "
+	},
+	"1820":
+	{
+		"Subtitle":""
+	},
+
+	"1823":
+	{
+		"Subtitle":"WE’RE IN THE PROCESS OF <strong> KILLING 96%  </strong>  OF OCEAN LIFE"
+	},
+
+	"1828":
+	{
+		"Music": "Audio/AcidicOcean_AMB_UnderWater.mp3",
+		"Subtitle":" "
+	},
+	
+	"1831":
+	{
+		"Subtitle":"252 MILLION YEARS AGO, IN AN EVENT KNOWN AS <strong> <br> “THE GREAT DYING” </strong>"
+	},
+
+	"1836":
+	{
+		"Subtitle":"A MASSIVE RELEASE OF <strong> CARBON DIOXIDE (CO2) </strong> AND OTHER GASES"
+	},
+
+	"1839":
+	{
+		"Subtitle":"CAUSED EXTREME <strong>GLOBAL WARMING</strong>"
+	},
+
+	"1842":
+	{
+		"Subtitle":"DEPLETING THE OCEANS OF <strong> OXYGEN</strong>"
+	},
+
+	"1844":
+	{
+		"Subtitle":"AND <strong>ACIDIFYING</strong> THE WATERS"
+	},
+
+
+	"1846":
+	{
+		"Subtitle":"TODAY WE ARE CAUSING THE <strong>SAME PROCESS</strong> TO HAPPEN"
+	},
+
+	
+	"1848":
+	{
+		"Subtitle":" AT A SPEED THAT SURPASSESS THAT OF THE GREAT DYING BY <strong> TENS OF THOUSANDS OF YEARS.</strong>"
+	},
+
+	"1851":
+	{
+		"Subtitle":"...BACK THEN <strong>LIFE</strong> RETURNED AFTER <strong>10 MILLION YEARS.</strong>"
+	},
+
+	"1854":
+	{
+		"Subtitle":"...IF WE FAIL TO ACT, WHAT WILL HAPPEN TO <strong>OCEAN LIFE?</strong>"
+	},
+
+	"1856":
+	{
+		"Subtitle":"...AND TO <strong> US?</strong>"
+	},
+
+	"1858":
+	{
+		"Subtitle":""
+	},
+
+	"1859":
+	{
+		"HintClickAnimalVisible":true
+	},
+
+
+	"1860":
+	{
+		"StatsVisible":true,
+		"TimelineVisible":true,
+		"Subtitle":"",
+		"Timeline_CameraPosition":[0,5, -10],
+		"Stats_Temp":0,
+		"Stats_Co2":0,
+		"Stats_Oxygen":0,
+		"Stats_Ph":0,
+		"Subtitle":""
+	},
+
+	"1861":
+	{
+		"YearsPerSecond":0.35
+	},
+
+	"1862":
+	{
+		"HintClickAnimalVisible":false
+	},
+
+	"1865":
+	{
+		"HintDragTimelineVisible":true
+	},
+	
+	"1870":
+	{
+
+		"HintDragTimelineVisible":false,
+		"Music2": "Audio/AcidicOcean_MUSIC_Sonification.mp3",
+		"Subtitle":""
+	},
+
+	"1876":
+	{
+		"YearsPerSecond":0.1
+	},
+
+	"1880":
+	{
+		"YearsPerSecond":0.35
+	},
+
+	"1882":
+	{
+		"CreateSwirlEveryXYears":4
+	},
+		
+	"1887":
+	{
+		"Subtitle":" "
+	},
+
+	"2019":
+	{
+		"FogColour":[0,0,0],
+		"Stats_Temp":1.1,
+		"Stats_Co2":36,
+		"Stats_Oxygen":2,
+		"Stats_Ph":26,
+		"DebrisColours": [
+		[0.03,0.25,0.51],
+		[0.03,0.41,0.67],
+		[0.17,0.55,0.75],
+		[0.31,0.70,0.83],
+		[0.79,0.91,0.95],
+		[0.03,0.25,0.51],
+		[0.03,0.41,0.67],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12]
+		],
+		"OceanColours":[
+		[0.79,0.91,0.95],
+		[0.31,0.70,0.83],
+		[0.17,0.55,0.75],
+		[0.03,0.41,0.67],
+		[0.03,0.25,0.51],
+		[0.03,0.25,0.51],
+		[0.03,0.41,0.67],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12]
+		]
+		
+	},
+
+
+	"2035":
+	{
+		"VoiceAudio":"Audio/AcidicOcean_VOICE_2050.mp3",
+		"Subtitle":" "
+	},
+
+
+	"2084":
+	{
+		
+		"DebrisColours": [
+		[1.00,0.38,0.02],
+		[1.00,0.64,0.01],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12],
+		[1.00,0.38,0.02],
+		[1.00,0.64,0.01],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12]
+		],
+		"OceanColours":[
+		[1.00,0.38,0.02],
+		[1.00,0.64,0.01],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12],
+		[1.00,0.38,0.02],
+		[1.00,0.64,0.01],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12]
+		]
+		
+	},
+
+	"2099":
+	{
+		"StatsVisible":false,
+		"TimelineVisible":false,
+		"Subtitle":"",
+		"RestartButtonVisible": true
+	},
+	
+	"2100":
+	{
+		"CreateSwirlEveryXYears":2,
+		"YearsPerSecond":0.25,
+		"FogColour":[0.09,0.06,0.02],
+		"Timeline_CameraPosition":[0,-3.60, 20],
+		"Stats_Temp":3.3,
+		"Stats_Co2":90,
+		"Stats_Oxygen":7,
+		"Stats_Ph":170,
+		"DebrisColours": [
+		[0.67,0.00,0.00],
+		[1.00,0.00,0.05],
+		[0.71,0.02,0.13],
+		[1.00,0.00,0.22],
+		[1.00,0.33,0.31],
+		[0.92,0.02,0.25],
+		[0.80,0.05,0.09],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12]
+		],
+		"SwirlColours": [
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05],
+			[1.00,0.00,0.05]
+		],
+		"OceanColours":[
+		[0.67,0.00,0.00],
+		[1.00,0.00,0.05],
+		[0.71,0.02,0.13],
+		[1.00,0.00,0.22],
+		[1.00,0.33,0.31],
+		[0.92,0.02,0.25],
+		[0.80,0.05,0.09],
+		[1.00,0.82,0.29],
+		[1.00,0.90,0.09],
+		[0.51,0.25,0.12]
+		]
+	},
+
+	"2101":
+	{
+		"YearsPerSecond":0.9,
+		"Subtitle":" <strong> YOU STILL HAVE THE POWER TO HELP OUR OCEANS. </strong>",
+		"VoiceAudio":"Audio/AcidicOcean_VOICE_Conclusion.mp3"
+	},
+
+	"2107":
+	{
+		"Subtitle":"BUT THE TIME TO ACT IS <strong> NOW </strong>"
+	},
+
+	"2114":
+	{
+		"Subtitle":""
+	},
+
+	"2115":
+	{
+		"MosaicVisible": true
+	},
+
+	"2125":
+	{
+		"MosaicVisible": false
+	},
+
+	"2127":
+	{
+		"SolutionVisible": true
+	}
+}

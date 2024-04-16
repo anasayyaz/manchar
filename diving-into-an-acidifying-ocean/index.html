@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Echoes The Manchar </title>
+
+    <meta property="og:title" content="Diving into an Acidifying Ocean">
+    <meta property="og:description"
+        content="A data driven immersive experience to discover the effects of ocean acidification on marine life. ">
+    <meta property="og:image"
+        content="https://experiments.withgoogle.com/diving-into-an-acidifying-ocean/Web/icons/Hero_Pteropod.jpg">
+    <meta property="og:url" content=" https://artsexperiments.withgoogle.com/diving-into-an-acidifying-ocean">
+    <meta name="twitter:card" content="hero_image">
+
+    <meta property="og:site_name" content="Diving into an Acidifying Ocean">
+    <meta name="twitter:image:alt" content="Dissolving pteropod">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Web/win95.css" />
+    <link rel="stylesheet" type="text/css" href="Web/Hud.css" />
+
+    <link rel="shortcut icon" href="Web/icons/favicon.ico">
+
+    <!-- this fixes chrome (not a problem in safari) from zooming in when switching between landscape and portrait on ios
+		https://stackoverflow.com/a/4389976/355753
+		Also seems okay in chrome on pixel3
+		-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            overflow: hidden;
+            background-color: #000;
+            color: #ccc;
+            /* text colour */
+        }
+
+        #Hud {
+            pointer-events: none;
+            /*	need a static position to make z index work */
+            position: relative;
+            z-index: 50;
+        }
+
+        input {
+            /* always allow pointer events on inputs */
+            pointer-events: auto !important;
+        }
+    </style>
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79993036-24"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-79993036-24');
+</script>
+
+<body>
+
+    <script src='Web/PopWebSharingApi.js'></script>
+    <script>
+        function GetElement(Element) {
+            if (typeof Element == 'string')
+                Element = document.getElementById(Element);
+            if (!Element)
+                throw "Element not found " + arguments[0];
+            return Element;
+        }
+
+        function ToggleElement(Element) {
+            Element = GetElement(Element);
+            if (Element.style.visibility != 'visible')
+                Element.style.visibility = 'visible';
+            else
+                Element.style.visibility = 'hidden';
+        }
+
+        function ShowElement(Element) {
+            Element = GetElement(Element);
+            Element.style.visibility = 'visible';
+        }
+
+        function HideElement(Element) {
+            Element = GetElement(Element);
+            Element.style.visibility = 'hidden';
+        }
+    </script>
+
+    <div id="Ui">
+        <div id="AboutPage">
+            <a id="AboutPageCloseButton" class="IconButton" href="javascript:HideElement('AboutPage');"><span
+                    id=AboutPageCloseLabel>Close</span></a>
+
+            <div id="OpeningText">
+                <span id="AboutText1">
+                    <P> Welcome to the Manchar Lake Species Archive, a digital repository dedicated
+                        to documenting the tragic loss <br> of biodiversity in one of Pakistan's largest freshwater lakes.
+                         Since 1962, Manchar Lake has witnessed a steady decline in its species,<br> resulting in the
+                        extinction of numerous flora and fauna.<br><br> My interactive and responsive website serves as a
+                        memorial to these lost species, providing a platform for education, awareness,<br> and reflection on
+                        the environmental challenges facing our planet. Join us in exploring the rich history and
+                        ecological significance of Manchar Lake,<br> while honoring the memory of the species that once
+                        thrived within its waters. </P>  <br /> <strong>"Manchar Lake's silent waters echo a tale
+                        of lost biodiversity since 1962. Join us in preserving its memory and raising awareness<br> of the
+                        urgent need for conservation. Together, let's ensure that the echoes of Manchar's past species
+                        inspire a brighter, more sustainable future."</strong>
+                    </strong> <br /><br /> This project is part of: <br /><br />
+                    <font size="9"> <strong> IEDA THESIS 2024 </strong> </font> <br /> a series of environmental
+                    Data visualizations of Pakistan.
+            </div>
+            <hr />
+
+            <div id="AboutText2">A project by</div>
+
+            <div id="crtq"><a href=https://www.studiocrtq.com /><img src="Web/icons/crtq.svg"
+                    alt="Muhammad Bux">Muhammad Bux</a></div>
+
+            <div id="and">Developed at </div>
+            <div id="graham"><a href=http://www.newchromantics.com><img src="Web/icons/NewChromantics_Logo.svg"
+                        alt="The New Chromantics">Viz By Buxx</a></div>
+
+            <div id="AboutText3">in collaboration with</div>
+
+            <div id="gac"><a href=https://g.co/heartbeatoftheearth><img src="Web/icons/gac.svg"
+                        alt="Viz By Buxx">sponsor</a></div>
+
+            <!-- <hr/> -->
+
+            <div id="ShareTeamDisclaimer">
+
+
+
+                <div id="AboutDisclaimer">
+                    <div id="DisclaimerTitle">
+                        <strong> </strong>
+                    </div>
+                    <div id="AboutNext">
+                        <a href="javascript:HideElement('AboutPage');javascript:ShowElement('DisclaimerPage');"> <img
+                                src="Web/icons/skip_right.svg"> </a>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="AboutSharingButtons">
+                <a  class=ShareButton_Link onclick="return ShareLink(this);" href=#><span></span></a>
+                <a class=ShareButton_Twitter onclick="return ShareTweet(this);" href="#"><span></span></a>
+                <a class=ShareButton_Facebook onclick="return ShareFacebook(this);" href=#><span></span></a>
+                <a class=ShareButton_Linkedin onclick="return ShareLinkedIn(this);" href=#><span></span></a>
+            </div>
+
+        </div>
+
+        <div id="DisclaimerPage">
+            <a id="DisclaimerPageCloseButton" class="IconButton"
+                href="javascript:HideElement('AboutPage');javascript:HideElement('DisclaimerPage');"><span
+                    id=DisclaimerPageCloseLabel>Close</span></a>
+
+            <div id="TeamCredits">
+                <div id="TheTeamTitle">
+                    <strong>THE TEAM</strong>
+                </div>
+                <div id="TeamList">
+                    <div><span>Concept, Artistic &amp; Creative Direction:</span><strong>Muhammad Bux </strong>
+                    </div>
+                    <div><span>Development &amp; Effects:</span><strong>Muhammad Ali Mohsin </strong></div>
+                    <div><span>Sound Design:</span><strong>Ali Haider Bhatti</strong></div>
+                    <div><span>Sound Assistant:</span><strong>Daska</strong></div>
+                    <div><span>Sounds created at: </span><strong>SVAD SOUND STUDIO</strong> </div>
+                    <div><span>3D Modelling and Texturing: </span><strong>Muhammad Bux</strong> </div>
+                    <div><span>Thesis Instructor:</span><strong>Rashid Rana</strong></div>
+                    <div><span>Co-Thesis Instructor :</span><strong>Rohma Khan</strong></div>
+                    <div><span>Instructor</span><strong>Durr E Shehwar</strong></div>
+
+                    <br />
+                    <div><span>Thanks for the scientific advice to: </span><strong>XYZ</strong><br /><br /><br /></div>
+                </div>
+
+
+
+                <div><strong>DISCLAIMER</strong></div>
+                <div>
+                    Every reasonable effort has been made to make this thesis as accurate as possible. This web
+                    experiment is an expression by the artist to generate discussion, awareness and interest in Ecology of Manchar Lake, the data behind it, and consequences of human
+                    inaction. Echoes of Manchar is not intended as a validated source of scientific
+                    discoveries or processes.<br /><br /> <br /></a>
+                </div>
+
+                <div><strong>RESOURCES</strong></div>
+                <div>
+                    For this project the datasets used are the following: <br /> <a
+                        href=https://sos.noaa.gov/datasets/ocean-acidification-surface-ph> Ocean Acidification: Surface
+                        pH </a> by NOAA <br /> <a href=https://sos.noaa.gov/datasets/ocean-atmosphere-co2-exchange />
+                    Ocean-Atmosphere CO2 exchange </a> by NOAA <br /> <a
+                        href=https://library.wmo.int/index.php?lvl=notice_display&id=21626#.XkGWiRNKh24> WMO Provisional
+                        Statement on the State of the Global Climate in 2019 </a> by World Meteorological
+                    Organization <br /> All the resorces concerning the marine life used in this project can be found <a
+                        href=https://docs.google.com/document/d/1jx8Ckdyjy_ex5NcetQAkQm6q8NTQmA1yLXc-5xL9S2A/edit?usp=sharing>
+                        here.<br /><br /><br /></a>
+                </div>
+                <div> For <strong> Privacy &amp; Terms </strong> click <a href="https://policies.google.com/privacy">
+                        here </a>
+                </div>
+
+            </div>
+
+            <div id="AboutSharingButtons2">
+                <a class=ShareButton_Link onclick="return ShareLink(this);" href=#><span></span></a>
+                <a class=ShareButton_Twitter onclick="return ShareTweet(this);" href="#"><span></span></a>
+                <a class=ShareButton_Facebook onclick="return ShareFacebook(this);" href=#><span></span></a>
+                <a class=ShareButton_Linkedin onclick="return ShareLinkedIn(this);" href=#><span></span></a>
+            </div>
+
+        </div>
+
+    </div>
+    <a id="AboutButton" class="IconButton"
+        href="javascript:ToggleElement('AboutPage');javascript:HideElement('DisclaimerPage');"><span
+            id=AboutLabel>About</span></a>
+    <!--<a id="VrButton" class="IconButton"><span id=VrLabel>VR</span></a>-->
+
+    <div id="Hud">
+        <!--
+		
+		<div id="IconSubtitles"><img src="Web/icons/Subtitles.svg"></div>
+		 <div id="SubIconText"> Enable subtitles</div>
+		 
+		 <div id="IconSubtitles_Enable"><img src="Web/icons/Subtitles_Enable.svg"></div>
+		 <div id="SubIconText">Disable subtitles</div>
+		 <div id="IconSubtitles_Disable"><img src="Web/icons/Subtitles_Disable.svg"></div>
+		
+		<span id="Subtitle_Line"> </span>
+		-->
+
+        <!-- move this, only needed for the old opengl logo -->
+        <div id="Logo">
+
+
+            <!--<div id="TitleText">ACIDIC OCEAN</div>-->
+            <div id="LogoBg">&nbsp;</div>
+            <div id="Hint_Start">S T A R T</div>
+
+            <div id="Hint_Headphones"> Use headphones for a better experience </div>
+            <div id="IconHeadphones"> <img src="Web/icons/Headphones.svg"> </div>
+
+            <div id="LogoSharingButtons">
+                <a class=ShareButton_Link onclick="return ShareLink(this);" href=#><span></span></a>
+                <a class=ShareButton_Twitter onclick="return ShareTweet(this);" href="#"><span></span></a>
+                <a class=ShareButton_Facebook onclick="return ShareFacebook(this);" href=#><span></span></a>
+                <a class=ShareButton_Linkedin onclick="return ShareLinkedIn(this);" href=#><span></span></a>
+            </div>
+
+        </div>
+        <!-- Logo screen -->
+
+
+
+        <div id="Experience">
+            <div id="PauseButton" class="IconButton">
+                <span id="PauseLabel">Pause</span>
+                <span id="ResumeLabel">Resume</span>
+            </div>
+            <a id="FullscreenButton" class="IconButton"><span id=FullscreenLabel>Fullscreen</span></a>
+
+            <!--
+			<div id="ExperienceSharingButton" class="IconButton">
+				<a class=ShareButton_Link onclick="return ShareLink(this);" href=#><span></span></a>
+			</div>
+			-->
+
+            <div id="JumpButtonIntro"> Skip Intro </div>
+            <div id="JumpButtonConclusion"> Restart </div>
+
+            <div><span id="SubtitleLabel">Subtitles</span></div>
+
+            <div id="SkipButton" class="IconButton"><span id="SkipLabel">Skip Section</span></div>
+            <div id="NextButton" class="IconButton"><span id="NextLabel">Next</span></div>
+            <div id="PrevButton" class="IconButton"><span id="PrevLabel">Prev</span></div>
+
+            <div id="TimelineContainer">
+                <input type=range id="YearSlider" min=1900 max=2600 oninput="MoveWithThumb(this);"
+                    onchange="MoveWithThumb(this);" />
+
+                <div id="YearLabelBox">
+                    <div id="YearLabel">XXXX</div>
+                </div>
+                <div id="YearStart">1860</div>
+                <div id="YearEnd">2100</div>
+                <script>
+                    function MoveWithThumb(Slider, LabelName = 'YearLabel') {
+                        const Label = document.getElementById(LabelName);
+                        const SliderTime = (Slider.valueAsNumber - Slider.min) / (Slider.max - Slider.min);
+                        Label.innerText = Slider.value;
+                        Label.style.left = (SliderTime * 100) + '%';
+                    };
+                    //	init
+                    const Slider = document.getElementById('YearSlider');
+                    MoveWithThumb(Slider);
+                </script>
+            </div>
+
+            <div id="Stats">
+                <div id="Stats_Temp"><strong>Planet's temperature increase:</strong> +<span
+                        id="Stats_Temp_Label">XXX</span>&deg;C</div>
+                <div id="Stats_Ph"><strong>Oceans' pH acidity increment:</strong> +<span id="Stats_Ph_Label">X</span>%
+                </div>
+                <div id="Stats_Co2"><strong>Oceans' CO2 intake:</strong> +<span id="Stats_Co2_Label">XXX</span>% </div>
+                <div id="Stats_Oxygen"><strong>Oceans' oxygen loss:</strong> -<span id="Stats_Oxygen_Label"> X.X</span>%
+                </div>
+
+            </div>
+
+
+            <div id="Hint_ClickAnimal"><span>Click on an animal to select it</span></div>
+            <div id="Hint_DragTimeline"><span>Drag the timeline to explore</span></div>
+
+            <div id="AnimalCardContainer">
+                <div id="AnimalCard">
+                    <div id="AnimalCard_Title">JELLYFISH</div>
+
+                    <div id="AnimalCard_Description">
+                        <h1> Bubblegum coral appear comfortable nearly everywhere outside of the tropics – where they
+                            can grow between 200 and 1300m of depth. </h1>
+                        <h2> Deep-water corals are damaged beep-water corals are damaged beep-water corals are damaged
+                            beep-water corals are damaged beep-water corals are damaged beep-water corals are damaged by
+                            a number of things: deep-water trawling, long
+                            line fishing, and oil and gas exploration. </h2>
+                        <h2> Like aragonitic corals, bubblegum corals are likely to be affected by changes in calcite
+                            saturation with depth. </h2>
+                    </div>
+                    <div id="Continue">Continue with the experience<span id="ContinueLabel">Continue</span></div>
+
+                    <div id="AnimalCardSharingButtons">
+                        <a id="AnimalCardShare_0" class=ShareButton_Link onclick="return ShareLink(this);"
+                            href=#><span></span></a>
+                        <a id="AnimalCardShare_1" class=ShareButton_Twitter onclick="return ShareTweet(this);"
+                            href="#"><span></span></a>
+                        <a id="AnimalCardShare_2" class=ShareButton_Facebook onclick="return ShareFacebook(this);"
+                            href=#><span></span></a>
+                        <a id="AnimalCardShare_3" class=ShareButton_Linkedin onclick="return ShareLinkedIn(this);"
+                            href=#><span></span></a>
+                    </div>
+                </div>
+                <div id="AnimalView">
+                    &nbsp;
+                </div>
+            </div>
+            <!--AnimalCardContainer-->
+
+        </div>
+        <!-- experience -->
+
+
+
+        <div id="Mosaic">
+            <div id="MosaicText"> WHAT KIND OF OCEAN DO YOU WANT TO REMEMBER? </div>
+        </div>
+
+        <div id="Solution">
+
+            <div> </div>
+            <div>These are some of the things I try to do to reduce my carbon foot print and act consiously:</div>
+
+            <div id="Solution_Tips">
+                <div id="Solution_Recycle">Recycle &amp; use a Compost for organic food</div>
+                <div id="Solution_Walk">Bike more, use public transport &amp; electric vehicles</div>
+                <div id="Solution_EatLocal">Reduce meat intake <br /> &amp; Eat seasonal and local</div>
+                <div id="Solution_Plastic">Refuse disposable plastic</div>
+                <div id="Solution_Fish">Eat local fish and avoit it when landlocked, <br /> look for sustainable labels
+                </div>
+                <div id="Solution_Energy">Choose sustainable and clean energy</div>
+
+                <!--<div id="Solution_Greenpeace" ><a href=https://www.greenpeace.org/international/>   <br/> <br/></a></div>-->
+                <!--<div id="Solution_SeaSheperd" ><a href=https://seashepherd.org/>     <br/> <br/> </a> </div>-->
+            </div>
+
+            <div id="Solution_WorldText"><br /><br /> <br /><br /><br /> We have laid eyes only on 5% of the Oceans even
+                though the Earth's surface is made of 71% of water and the oceans hold about 96.5% of all the Earth's
+                water.</div>
+            <div id="Solution_WorldIcon">&nbsp;</div>
+
+        </div>
+        <!-- solution -->
+
+
+        <div id="Debug">
+            <div id="Debug_State">State ?</div>
+            <div id="Debug_AudioMusic">Music: <span id="AudioMusicLabel">Track</span></div>
+            <div id="Debug_AudioMusic2">Music2: <span id="AudioMusic2Label">Track</span></div>
+            <div id="Debug_AudioVoice">Voice: <span id="AudioVoiceLabel">Voice</span></div>
+            <div id="Debug_VisibleActors">Debug_VisibleActors</div>
+            <div id="Debug_RenderedActors">Debug_RenderedActors</div>
+            <div id="Debug_FrameRate">X FPS</div>
+            <div id="Debug_RenderStats">Debug_RenderStats</div>
+            <div id="Debug_TextureHeap">Debug_MemoryUsage</div>
+            <div id="Debug_GeometryHeap">Debug_GeometryHeap</div>
+        </div>
+        <!-- Debug -->
+
+
+    </div>
+    <!-- on UC browser (maybe others) the visibility style doesnt apply until other stuff has loaded, so add it directly here -->
+    <div style="visibility:hidden" id="AppErrorBox">
+        Unspecified Error.
+    </div>
+    <script>
+        HideElementsIfShareLinkUnsupported('ShareButton_Link');
+    </script>
+    <script src="bootup.js"></script>
+    <script src='PopEngineCommon/PromiseQueue.js'></script>
+    <script src='PopEngineCommon/PopWebApi.js'></script>
+    <script src='PopEngineCommon/PopApi.js'></script>
+    <script src='PopEngineCommon/PopWebOpenglApi.js'></script>
+    <script src='PopEngineCommon/PopWebGuiApi.js'></script>
+    <script src='PopEngineCommon/PopWebImageApi.js'></script>
+    <script src='PopEngineCommon/PopWebSocketApi.js'></script>
+    <script src='PopEngineCommon/PopWebXrApi.js'></script>
+
+    <!-- try and load anything with no dependencies here -->
+    <script src='StateMachine.js'></script>
+    <script>
+        async function Bootup() {
+            const AsyncAssetLoads = true; //Pop.GetExeArguments().includes('AsyncAssets');
+
+            const PreloadAssets = [
+                "bootup.js",
+
+                //	anything in bootup.js
+                "PopEngineCommon/PopApi.js",
+                "AudioManager.js",
+                "AssetImport.js",
+                "Water.js",
+                "AssetManager.js",
+                "Actors.js",
+                "ParticleActor.js",
+                "Hud.js",
+                "PopEngineCommon/PopCamera.js",
+                "Scene.js",
+                "PopEngineCommon/PopFrameCounter.js",
+
+                "LogoScene.js",
+
+                "AnimalParticle.frag.glsl",
+                "WaterParticle.vert.glsl",
+                "TurbulencePerlin.frag.glsl",
+                "PopEngineCommon/PopShaderCache.js",
+                "PopEngineCommon/PopMath.js",
+                //'PopEngineCommon/ParamsWindow.js',
+                "PopEngineCommon/PopTexture.js",
+
+                //	swirls
+                "AnimalParticle.vert.glsl",
+                "BlitCopy.frag.glsl",
+                "PhysicsIteration_UpdatePositionSwirl.frag.glsl",
+                "PhysicsIteration_UpdateVelocitySwirl.frag.glsl",
+
+                "Timeline.js",
+                "Quad.vert.glsl",
+            ];
+
+            //	queue up dependencies for bootup
+            if (AsyncAssetLoads) {
+                //	trigger all then wait for them all to finish
+                const AssetPromises = [];
+                const Load = function (Filename) {
+                    const Promise = Pop.AsyncCacheAssetAsString(Filename);
+                    AssetPromises.push(Promise);
+                }
+                PreloadAssets.forEach(Load);
+                await Promise.all(AssetPromises);
+            } else {
+                //	await one by one
+                for (let i = 0; i < PreloadAssets.length; i++) {
+                    const Filename = PreloadAssets[i];
+                    await Pop.AsyncCacheAssetAsString(Filename);
+                }
+            }
+
+            let BootupFilename = "bootup.js";
+
+            if (Pop.GetExeArguments().includes('AudioTest')) {
+                BootupFilename = 'AudioTest.js';
+            }
+
+            //	these need to finish for bootup
+            let Source = await Pop.LoadFileAsStringAsync(BootupFilename);
+            Pop.CompileAndRun(Source, BootupFilename);
+        }
+
+        function ShowError(ErrorString) {
+            if (ErrorString instanceof Error)
+                ErrorString = ErrorString.toString();
+            if (typeof ErrorString != 'string')
+                ErrorString = JSON.stringify(ErrorString);
+            const ErrorElement = GetElement('AppErrorBox');
+            ShowElement(ErrorElement);
+            ErrorElement.innerText += '\n';
+            ErrorElement.innerText += ErrorString;
+            ErrorElement.style.visibility = "visible";
+        }
+
+        //	gr: this isn't having an effect, so disabled for now
+        /*
+        //	catch global errors
+        window.addEventListener('error',ShowError);
+        window.onerror = ShowError;
+        //window.onerror = function (message,source,lineno,colno,error) { };
+        */
+
+        Bootup().then(e => Pop.Debug("Finished!", e)).catch(ShowError);
+    </script>
+
+</body>
+<script data-autoload-cookie-consent-bar="true"
+    src="https://www.gstatic.com/brandstudio/kato/cookie_choice_component/cookie_consent_bar.v2.js"></script>
+
+</html>

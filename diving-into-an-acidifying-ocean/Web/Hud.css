@@ -1,0 +1,1746 @@
+/* cookie script inserts a script tag, which overrides anything in our css, so need to add !important */
+
+#cookieBar .cookieBarText,
+#cookieBar .cookieBarButtons {
+    font-size: 1.5vh !important;
+}
+
+/* stick cookie buttons on their own line */
+
+.cookieBarButtons {
+    display: block;
+}
+
+/* disable scrolling on ios
+https://stackoverflow.com/a/57489918/355753
+*/
+
+html,
+body {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+    color: #ffffff;
+    xxxtext-decoration: none;
+}
+
+a:hover {
+    color: #b3b7ca;
+    xxxfont-weight: bold;
+}
+
+/* Stuff that needs to be on top of the experience */
+
+#Ui,
+#PauseButton,
+#AboutButton,
+#FullscreenButton,
+#VrButton,
+#SkipButton,
+#PrevButton,
+#NextButton,
+#Hint_Start,
+#ExperienceSharingButton {
+    z-index: 902;
+}
+
+#AboutPage,
+#DisclaimerPage {
+    z-index: 903;
+}
+
+#Ui {
+    position: absolute;
+    height: 90vh;
+    font-size: 2.5vh;
+}
+
+#Hud {
+    font-size: 3vmin;
+    color: #ffffff;
+    xbackground: red;
+    xheight: 100vh;
+}
+
+/* start debug hidden */
+
+#Debug {
+    visibility: hidden;
+}
+
+#Logo {
+    xvisibility: hidden;
+}
+
+/* start experience stuff hidden */
+
+#Experience {
+    visibility: hidden;
+}
+
+/* thing at the end */
+
+#Solution {
+    visibility: hidden;
+}
+
+#Hint_Start {
+    visibility: hidden;
+}
+
+#AudioMusic {
+    display: block;
+    position: absolute;
+    top: 10vh;
+}
+
+#AudioVoice {
+    display: block;
+    position: absolute;
+    top: 14vh;
+    xbackground-color: red;
+}
+
+#TitleText {
+    display: block;
+    position: absolute;
+    left: 10vw;
+    top: 1vw;
+    xbackground-color: red;
+    width: 80vw;
+    height: 80vh;
+    font-size: 30vmin;
+    line-height: 24vh;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#SubtitleLabel {
+    position: absolute;
+    left: 22.5vw;
+    top: 45vh;
+    width: 55vw;
+    height: 5vh;
+    font-size: 2.5vh;
+    text-align: center;
+    xxxdisplay: flex;
+    xxxalign-items: center;
+    xxxjustify-content: center;
+    xxxflex-direction: row;
+}
+
+@media (max-device-width: 700px) {
+    #SubtitleLabel {
+        top: 40vh;
+        vertical-align: middle;
+    }
+}
+
+#LogoBg {
+    --TheTop: calc(6 * var(--ButtonSize) + 4vh);
+    display: block;
+    position: absolute;
+    top: var(--TheTop);
+    left: 10vw;
+    width: 80vw;
+    height: calc(50vh - var(--TheTop));
+    xbottom: 60vh;
+    /* start top is 65 */
+    background-image: url(icons/Logo_landscape_NormallySpaced.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 40%;
+    xxbackground-color: #c00;
+}
+
+/* portrait mode */
+
+@media (max-aspect-ratio: 1/1) {
+    #LogoBg {
+        --TheTop: calc(4 * var(--ButtonSize) + 2vh);
+        background-image: url(icons/Logo_portrait_normallySpaced.png);
+        height: calc(50vh - var(--TheTop));
+    }
+}
+
+#Logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+}
+
+#Logo {
+    pointer-events: initial;
+}
+
+#LogoShare {
+    xdisplay: inline-block;
+    left: 20vw;
+    width: 30vw;
+    position: absolute;
+    top: 75vh;
+}
+
+#Mosaic {
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    xbackground-color: black;
+    /* gr: set this in code, as having it in CSS loads
+		it at bootup, and it's one of our biggest assets
+	background-image:		url(icons/Mosaic2_opa.png);
+		*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+@media (max-device-width: 700px) {
+    #Mosaic {
+        visibility: hidden;
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        xbackground-color: black;
+        background-image: url(icons/Mosaic_Mobile.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
+}
+
+#MosaicText {
+    font-size: 10vmin;
+    font-weight: bold;
+    position: absolute;
+    left: 12.5vw;
+    top: 37vh;
+    width: 75vw;
+    text-align: center;
+}
+
+#Stats {
+    xxvisibility: visible !important;
+    xxxbackground: blue;
+    position: absolute;
+    font-size: 2vh;
+    line-height: 3vh;
+    right: 0.2vw;
+    top: 2.2vmin;
+    /*same as about button*/
+    width: 42vh;
+    height: 15vh;
+}
+
+#Stats div {
+    overflow: hidden;
+    xbackground: red;
+}
+
+#Stats div strong {
+    display: inline-block;
+    width: 30vh;
+    text-align: right;
+}
+
+:root {
+    --ButtonSize: 4vmin;
+    --ButtonMargin: 2vmin;
+    --ButtonFontSize: 2vmin;
+}
+
+/* small screen */
+
+@media (max-device-width: 700px) {
+    :root {
+        --ButtonSize: 8vmin;
+        --ButtonMargin: 4vmin;
+        --ButtonFontSize: 3vmin;
+    }
+}
+
+.ShareButton_Link,
+.ShareButton_Twitter,
+.ShareButton_Facebook,
+.ShareButton_Linkedin {
+    display: block;
+    width: calc(3 * var(--ButtonSize));
+    height: calc(1.5 * var(--ButtonSize));
+    font-size: var(--ButtonFontSize);
+    xbackground: red;
+    background-repeat: no-repeat;
+    xborder-radius: 50%;
+    padding-left: calc(1.7 * var(--ButtonSize));
+    text-align: left;
+    /* vertically center child label */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#AboutSharingButtons a {
+    /* vertically center child label */
+    display: block;
+    justify-content: left;
+    align-items: center;
+}
+
+#LogoSharingButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2vh;
+    width: 80vw;
+    left: 10vw;
+    height: calc(4 * var(--ButtonSize));
+    xbackground: green;
+}
+
+#LogoSharingButtons>*,
+#AnimalCardSharingButtons>* {
+    padding-left: 0px;
+    padding-top: calc(1.1 * var(--ButtonSize));
+    width: calc(2.0 * var(--ButtonSize));
+    height: calc(1.0 * var(--ButtonSize));
+    background-size: auto 40%;
+    background-position: top center;
+    display: block;
+    text-align: center;
+   pointer-events: auto;
+    cursor: pointer;
+}
+
+.ShareButton_Link {
+    background-image: url(icons/Share_Plane.svg);
+    background-size: 2.5vw;
+    xfont-size: 0;
+}
+
+@media (max-device-width: 700px) {
+    .ShareButton_Link {
+        background-image: url(icons/Share_Plane.svg);
+        background-size: 6.5vw;
+        xfont-size: 0;
+    }
+}
+
+.ShareButton_Twitter {
+    background-image: url(icons/Share_Twitter.svg);
+    background-size: 2.5vw;
+    xfont-size: 0;
+}
+
+@media (max-device-width: 700px) {
+    .ShareButton_Twitter {
+        background-size: 6.5vw;
+        xfont-size: 0;
+    }
+}
+
+.ShareButton_Facebook {
+    background-image: url(icons/Share_Facebook.svg);
+    background-size: 3vw;
+    xfont-size: 0;
+}
+
+@media (max-device-width: 700px) {
+    .ShareButton_Facebook {
+        background-size: 6.5vw;
+        xfont-size: 0;
+    }
+}
+
+.ShareButton_Linkedin {
+    background-image: url(icons/Share_Linkedin.svg);
+    background-size: 2.5vw;
+    xfont-size: 0;
+}
+
+@media (max-device-width: 700px) {
+    .ShareButton_Linkedin {
+        background-size: 6.5vw;
+        xfont-size: 0;
+    }
+}
+
+#PauseButton,
+#AboutButton,
+#FullscreenButton,
+#VrButton,
+#SkipButton,
+#PrevButton,
+#NextButton,
+#ExperienceSharingButton {
+    /* these are for debug really, as they dont react until they're setup with style in code */
+    xxpointer-events: auto;
+    xxcursor: pointer;
+    xxvisibility: visible !important;
+    /* force on for debug */
+    position: absolute;
+    left: var(--ButtonMargin);
+    width: var(--ButtonSize);
+    height: var(--ButtonSize);
+    background: black;
+    border-radius: 50%;
+}
+
+#JumpButtonIntro,
+#JumpButtonConclusion {
+    xxxvisibility: hidden;
+    display: block;
+    position: absolute;
+    left: 44.5vw;
+    top: 90vh;
+    width: 12vw;
+    height: 5vh;
+    font-size: 1.3vh;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-device-width: 700px) {
+
+    #JumpButtonIntro,
+    #JumpButtonConclusion {
+        width: 22vmin;
+        height: 10vmin;
+        left: 38vw;
+        font-size: 1.4vh;
+        top: 80vh;
+    }
+}
+
+@media (max-device-width: 700px) {
+
+    #JumpButtonIntro,
+    #JumpButtonConclusion {
+        width: 22vmin;
+        height: 10vmin;
+        left: 38vw;
+        font-size: 1.4vh;
+        top: 80vh;
+    }
+}
+
+#ContinueLabel {
+    width: 4vmin;
+    height: 4vmin;
+    xxbackground: black;
+    xxborder-radius: 50%;
+}
+
+#AboutButton {
+    top: var(--ButtonMargin);
+}
+
+#PauseButton {
+    top: calc(var(--ButtonMargin) + var(--ButtonMargin) + var(--ButtonSize));
+}
+
+#FullscreenButton {
+    top: calc(var(--ButtonMargin) + var(--ButtonMargin) +var(--ButtonSize) + var(--ButtonMargin) + var(--ButtonSize));
+}
+
+#ExperienceSharingButton {
+    top: calc(var(--ButtonMargin) + var(--ButtonMargin) + var(--ButtonSize) + var(--ButtonMargin) + var(--ButtonSize) + var(--ButtonMargin) + var(--ButtonSize));
+}
+
+#VrButton {
+    top: calc(var(--ButtonMargin) + var(--ButtonMargin) + var(--ButtonSize) + var(--ButtonMargin) + var(--ButtonSize) + var(--ButtonMargin) + var(--ButtonSize));
+}
+
+#PrevButton {
+    visibility: hidden;
+    /* shown by code */
+    top: 70vh;
+    left: calc(10vw + 4vmin);
+}
+
+#NextButton,
+#SkipButton {
+    visibility: hidden;
+    /* shown by code */
+    xxxdeubug_visibility: visible !important;
+    /* 88vh is top of timeline */
+    /* 80vw is widht of timline */
+    top: 70vh;
+    left: calc(90vw - 8vmin);
+}
+
+#AboutPageCloseButton,
+#DisclaimerPageCloseButton {
+    width: 4vmin;
+    height: 4vmin;
+    position: absolute;
+    top: 0vmin;
+    left: calc(50% - 2vmin);
+    xbackground-color: red;
+}
+
+/* make background bigger on hover*/
+
+#PauseButton:hover span,
+#AboutButton:hover span,
+#FullscreenButton:hover span,
+#VrButton:hover span,
+#AboutPageCloseButton:hover span,
+#DisclaimerPageCloseButton:hover span,
+#SkipButton:hover span,
+#PrevButton:hover span,
+#NextButton:hover span,
+#Continue:hover span,
+#ExperienceSharingButton:hover span {
+    xbackground: red;
+    background-size: auto 65%;
+}
+
+#PauseButton span,
+#AboutButton span,
+#FullscreenButton span,
+#VrButton span,
+#AboutPageCloseButton span,
+#DisclaimerPageCloseButton span,
+#SkipButton span,
+#PrevButton span,
+#NextButton span,
+#Continue span,
+#ExperienceSharingButton span {
+    background-size: auto 55%;
+    background-position: center;
+}
+
+#PauseLabel,
+#ResumeLabel,
+#AboutLabel,
+#FullscreenLabel,
+#VrLabel,
+#AboutPageCloseLabel,
+#DisclaimerPageCloseLabel,
+#SkipLabel,
+#PrevLabel,
+#NextLabel,
+#ExperienceSharingButton {
+    /*xbackground-size:	auto 50%;	 this needs to go in the selector with hover */
+    font-size: 0;
+    /* Hide the text */
+    pointer-events: none;
+    /* let clicks fall through to parent */
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+#ContinueLabel {
+    font-size: 0;
+}
+
+/* small screen */
+
+@media (max-device-width: 700px) {
+
+    #NextButton,
+    #SkipButton {
+        left: calc(90vw - 8vmin);
+    }
+}
+
+#AboutLabel {
+    background: url(icons/About.svg) no-repeat;
+    xxbackground-color: red;
+}
+
+#FullscreenLabel {
+    background: url(icons/Fullscreen.svg) no-repeat;
+    xxbackground-color: red;
+}
+
+#VrLabel {
+    background: url(icons/Vr.svg) no-repeat;
+    font-size: 100%;
+    /* Hide the text */
+    xxbackground-color: red;
+}
+
+#AboutPageCloseLabel,
+#DisclaimerPageCloseLabel {
+    background: url(icons/close.svg) no-repeat;
+    xxbackground-color: red;
+}
+
+#PauseLabel {
+    background: url(icons/pause.svg) no-repeat;
+    xxbackground-color: red;
+}
+
+#ResumeLabel {
+    visibility: hidden;
+    /* Toggled in code - overridden on style ON element */
+    background: url(icons/play.svg) no-repeat;
+    xxbackground-color: lime;
+}
+
+#NextLabel,
+#SkipLabel {
+    background: url(icons/skip_right.svg) no-repeat;
+    xxbackground-color: red;
+}
+
+#PrevLabel {
+    background: url(icons/Prev_left.svg) no-repeat;
+    xxbackground-color: red;
+}
+
+hr {
+    border: 0;
+    background: url('icons/wave1.svg') no-repeat top center;
+    background-size: contain;
+    height: 5vh;
+    xwidth: 5vw;
+    xbackground: magenta;
+    /*
+	position: absolute;
+	top: 14vh;
+	left: 43.5vw;
+	width: 5vw;
+	 */
+}
+
+hr:nth-child(even) {
+    background: url('icons/wave2.svg') no-repeat top center;
+    margin-top: -0.7vh;
+    height: 5vh;
+}
+
+#AboutText1,
+#AboutText2,
+#AboutText3 {
+    text-align: center;
+    xbackground: red;
+}
+
+#OpeningText {
+    margin: auto;
+    margin-top: -6vh;
+    margin-bottom: 0;
+    width: 80%;
+    left: 10%;
+    xbackground: blue;
+}
+
+@media (max-device-width: 700px) {
+    #OpeningText {
+        margin: auto;
+        margin-top: -8vh;
+        margin-bottom: 0;
+        width: 85%;
+        left: 5%;
+        xbackground: blue;
+    }
+}
+
+#gac,
+#crtq,
+#graham {
+    font-size: 0px;
+    /* hide text*/
+}
+
+#crtq {
+    xbackground: blue;
+}
+
+#crtq a {
+    width: 45vw;
+    height: 4vh;
+    xbackground: lime;
+    display: inline-block;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+@media (max-device-width: 700px) {
+    #crtq a {
+        width: 60vw;
+        height: 3vh;
+        xbackground: lime;
+        display: inline-block;
+        text-align: center;
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+    }
+}
+
+/*
+#GoogleAndGraham
+{
+	xbackground:		yellow;
+	display:			flex;
+	justify-content:	center;
+	align-items:		center;
+	margin-bottom:		-2vh;
+	margin-top:			-2vh;
+}
+*/
+
+#gac {
+    display: inline-block;
+    xbackground: blue;
+    height: 7vh;
+    width: 24vw;
+    align-items: center;
+}
+
+@media (max-device-width: 700px) {
+    #gac {
+        display: inline-block;
+        xbackground: blue;
+        height: 5vh;
+        width: 40vw;
+        align-items: center;
+    }
+}
+
+#graham {
+    display: inline-block;
+    xbackground: purple;
+    height: 5vh;
+    width: 22vw;
+    padding-top: 1.5vh;
+    xxxpadding-bottom: 1vh;
+    align-items: center;
+    margin-bottom: 0.4vh;
+}
+
+@media (max-device-width: 700px) {
+    #graham {
+        display: inline-block;
+        xbackground: purple;
+        height: 5vh;
+        width: 40vw;
+        padding-top: 1.5vh;
+        xxxpadding-bottom: 1vh;
+        align-items: center;
+        margin-bottom: 0.4vh;
+    }
+}
+
+/*
+#GoogleAndGraham #graham
+{
+	width:				16vw;	
+	padding-left:		0.5vw;
+	padding-right:		3.5vw;
+	padding-top:		4vh;
+}
+*/
+
+#and {
+    xbackground: magenta;
+    padding: 0 2vw 0 2vw;
+}
+
+#ShareTeamDisclaimer {
+    position: relative;
+}
+
+#TeamCredits {
+    position: absolute;
+    top: 6%;
+    width: 90%;
+    left: 5%;
+}
+
+@media (max-device-width: 700px) {
+    #TeamCredits {
+        position: absolute;
+        top: 3.5%;
+        width: 90%;
+        left: 5%;
+    }
+}
+
+#AboutDisclaimer {
+    position: absolute;
+    width: 40%;
+    left: 70%;
+    xbackground: red;
+}
+
+#AboutSharingButtons {
+    position: absolute;
+    top: 20%;
+    width: 20%;
+    left: 0%;
+}
+
+#AboutSharingButtons2 {
+    position: absolute;
+    top: 20%;
+    width: 20%;
+    left: 0%;
+}
+
+#TheTeamTitle,
+#DisclaimerTitle {
+    xmargin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+#AboutDisclaimer div {
+    margin-bottom: 2vh;
+}
+
+#TeamList div {
+    display: flex;
+    justify-content: center;
+}
+
+#TeamList div span {
+    padding-right: 0.5em;
+    text-align: right;
+    width: 40%;
+    display: inline-block;
+}
+
+#TeamList div strong {
+    padding-left: 0.5em;
+    text-align: left;
+    width: 40%;
+    display: inline-block;
+}
+
+#Hint_Start {
+    xbackground-color: red;
+    display: block;
+    position: absolute;
+    left: 25vw;
+    top: 65vh;
+    width: 50vw;
+    height: 4vh;
+    font-size: calc(0.5em + 0.5vh);
+    font-weight: bold;
+    padding: 0.3em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+    text-underline-position: under;
+    xxxborder-radius: 0.7em;
+    xxxborder: 0.1em solid white;
+}
+
+@media (max-device-width: 700px) {
+    #Hint_Start {
+        left: 24vw;
+        font-size: 7vmin;
+    }
+}
+
+#Hint_Headphones {
+    xxxvisibility: hidden;
+    display: block;
+    position: absolute;
+    left: 10.5vw;
+    top: 71vh;
+    width: 80vw;
+    height: 5vh;
+    font-size: 1.5vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#IconHeadphones {
+    xxxvisibility: hidden;
+    display: block;
+    position: absolute;
+    left: calc(50% - 1vmin);
+    top: 78vh;
+    width: 3vmin;
+    xxxheight: 5vh;
+}
+
+@media (max-device-width: 700px) {
+    #IconHeadphones {
+        left: calc(50% - 2vmin);
+        width: 7vmin;
+    }
+}
+
+#IconSubtitles {
+    display: block;
+    position: absolute;
+    left: 0.8vw;
+    top: 3vh;
+    width: 1vw;
+    height: 1vh;
+    align-items: left;
+    justify-content: left;
+}
+
+#IconSubtitles_Enable {
+    display: block;
+    position: absolute;
+    left: 0.85vw;
+    top: 3vh;
+    width: 1vw;
+    height: 1vh;
+    align-items: left;
+    justify-content: left;
+}
+
+#IconSubtitles_Disable {
+    display: block;
+    position: absolute;
+    left: 0.85vw;
+    top: 3vh;
+    width: 1vw;
+    height: 1vh;
+    align-items: left;
+    justify-content: left;
+}
+
+#Subtitle_Line {
+    display: block;
+    position: absolute;
+    left: 2vw;
+    top: 6vh;
+    width: 4vw;
+    height: 0.05em;
+    background: white;
+}
+
+#SubIconText {
+    font-size: 1.5vh;
+    line-height: 3vh;
+    position: absolute;
+    left: 2.5vw;
+    top: 3.8vh;
+    width: 30vh;
+    height: 15vh;
+    text-align: left;
+}
+
+/* This is for Mobile */
+
+#Hint_TapAnimal {
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    left: 40vw;
+    xxxtop: 45vh;
+    width: 16vw;
+    height: 4vh;
+    font-size: 4vh;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.65) url(icons/Mobile_Animal2.svg) no-repeat 8% 50%;
+    background-size: 3vh;
+    display: flex;
+    align-items: center;
+    padding: 32px;
+    padding-left: 8vh;
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+    border-radius: 25px;
+}
+
+#Hint_ClickAnimal {
+    /* debug
+	visibility:	visible !important;
+	z-index:		9999 !important;
+	background:	magenta !important;
+	/* */
+    display: block;
+    position: absolute;
+    width: 100vw;
+    top: 40vh;
+}
+
+#Hint_DragTimeline {
+    /* debug
+	visibility:	visible !important;
+	z-index:		9999 !important;
+	background:	magenta !important;
+	/* */
+    display: block;
+    position: absolute;
+    width: 100vw;
+    top: 70vh;
+}
+
+#Hint_ClickAnimal span,
+#Hint_DragTimeline span {
+    /* font size dictates height, which dicates width to keep text in one line, which dictates background size */
+    --FontSize: 2vmin;
+    --Height: calc(var(--FontSize) * 4);
+    --BackgroundSize: var(--Height);
+    display: block;
+    width: calc((var(--FontSize) * 12) + var(--BackgroundSize));
+    font-size: var(--FontSize);
+    height: var(--Height);
+    border-radius: calc(0.25 * var(--Height));
+    margin: auto;
+    /* horz center */
+    line-height: var(--Height);
+    /* vertical center */
+    background-position: 1vw center;
+    padding-left: calc(1 * var(--BackgroundSize));
+    background-image: url(icons/Desktop_Animal.svg);
+    background-repeat: no-repeat;
+    background-size: calc(0.5 * var(--BackgroundSize));
+    background-color: rgba(0, 0, 0, 0.65);
+    xbackground-color: red;
+}
+
+@media (max-device-width: 780px) {
+
+    #Hint_ClickAnimal span,
+    #Hint_DragTimeline span {
+        /* font size dictates height, which dicates width to keep text in one line, which dictates background size */
+        --FontSize: 3.5vmin;
+    }
+}
+
+#Hint_DragTimeline span {
+    background-image: url(icons/Desktop_Timeline.svg);
+    background-size: calc(0.6 * var(--BackgroundSize));
+    padding-left: calc(1.2 * var(--BackgroundSize));
+}
+
+/* try and detect mobile devices and show touch icons */
+
+@media (max-device-width: 780px) {
+    #Hint_DragTimeline span {
+        background-image: url(icons/Mobile_Timeline2.svg);
+    }
+
+    #Hint_ClickAnimal span {
+        background-image: url(icons/Mobile_Animal2.svg);
+    }
+}
+
+#AnimalCard {
+    background: rgba(0, 0, 0, 0.50);
+    padding: 2vmin;
+    xmargin: auto;
+    /* centers with flexbox */
+}
+
+/* big screen mode */
+
+#AnimalCard {
+    position: absolute;
+    left: 10vw;
+    width: 30vw;
+    /* change this to a font-relative size */
+    top: 14vh;
+}
+
+#AnimalView {
+    display: block;
+    position: absolute;
+    left: 4vmin;
+    top: 4vmin;
+    width: calc(100vw - 8vmin);
+    /* change this to a font-relative size */
+    height: calc(100vh - 8vmin);
+    /* change this to a font-relative size */
+}
+
+/* landscape small screen */
+
+@media (max-device-width: 780px) {
+    /*
+	#AnimalCardContainer
+	{
+		position:		absolute;
+		display:		flex;
+		background:		magenta;
+		flex-direction:	row;
+		width:			100vw;
+		height:			100vh;
+	}
+	
+	#AnimalCardContainer *
+	{
+		flex-grow:		90;
+	}
+	
+	#AnimalCard
+	{
+		flex-grow:		1;
+		position:		static;
+		background:		red;
+	}
+	
+	#AnimalCard_Description
+	{
+		background:		blue;
+	}
+	*/
+}
+
+/* portrait, height/width */
+
+@media (max-aspect-ratio: 1/1) {
+    #AnimalCardContainer {
+        position: absolute;
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+        /* safari on ios cuts off the bottom
+		 https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+		 */
+        xxheight: -webkit-fill-available;
+        margin-top: 8vh;
+        height: 85vh;
+    }
+
+    #AnimalCardContainer>* {
+        position: static;
+        width: auto;
+        height: auto;
+        left: auto;
+        top: auto;
+        flex-grow: 90;
+    }
+
+    #AnimalCard {
+        flex-grow: 1;
+    }
+}
+
+#AnimalCard_Title {
+    letter-spacing: 0.07vw;
+    /* use of viewport width! */
+    font-weight: bold;
+    font-size: 2.2vh;
+    height: 4vh;
+    padding-left: 2vh;
+    border-bottom: 0.10vh solid white;
+    margin-bottom: 1vh;
+}
+
+#AnimalCard_Description h1,
+#AnimalCard_Description h2 {
+    letter-spacing: 0.07vw;
+    /* use of viewport width! */
+    /* remove h1 & h2 default styles */
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.8vh;
+    font-weight: 300;
+    margin-bottom: 1vh;
+    padding-left: 2vh;
+    /* space for bullet */
+    background-image: url(icons/bullet.svg);
+    background-repeat: no-repeat;
+    background-size: 0.5vh;
+    background-position: 0.0vh 1.2vh;
+}
+
+/* landscape small screen */
+
+@media (max-device-width: 780px) {
+
+    #AnimalCard_Description h1,
+    #AnimalCard_Description h2 {
+        letter-spacing: 0.07vw;
+        /* use of viewport width! */
+        /* remove h1 & h2 default styles */
+        padding: 0px;
+        margin: 0px;
+        font-size: 2vh;
+        font-weight: 300;
+        margin-bottom: 1vh;
+        padding-left: 2vh;
+        /* space for bullet */
+        background-image: url(icons/bullet.svg);
+        background-repeat: no-repeat;
+        background-size: 0.5vh;
+        background-position: 0.0vh 1.2vh;
+    }
+}
+
+#Continue {
+    background: rgba(0, 0, 0, 0.50);
+    height: 5vh;
+    font-weight: bold;
+    xtext-transform: uppercase;
+    text-align: right;
+    xtext-decoration: underline;
+    /* match START */
+    padding-right: 5vmin;
+    padding-top: 2vh;
+    font-size: 2vh;
+    letter-spacing: 0.07vw;
+    /* todo: make all link/text buttons have same spacing! */
+    background-image: url(icons/Continue.svg);
+    background-size: auto 55%;
+    xbackground-size: 17vw;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    /* undo button style */
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#ContinueLabel {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    /* cant grab width as 100% height, wont appear on mobile without a width
+	height:			100%;
+	width:			auto;
+	 */
+    xbackground: url(icons/skip_right.svg) no-repeat black;
+    xborder-radius: 50%;
+    xbackground-size: auto 55%;
+    xbackground-position: right center;
+}
+
+@media (max-device-width: 700px) {
+    #ContinueLabel {
+        width: 8vmin;
+        height: 8vmin;
+    }
+
+    #Continue {
+        padding-right: 10vmin;
+    }
+}
+
+/* debug */
+
+/*
+#AnimalView, #AnimalCard
+{
+	visibility:		visible !important;
+}
+#AnimalView
+{
+	background:		yellow !important;
+}
+#AnimalCard
+{
+	background:		red !important;
+	z-index:		9999 !important;
+}
+#Continue
+{
+	background-color:	blue !important;
+}
+/* */
+
+#Solution {
+    overflow: hidden;
+    xbackground: red;
+    position: absolute;
+    padding-top: 10vh;
+    top: 12vh;
+    left: 8vw;
+    width: 84vw;
+    height: 70vh;
+    font-weight: 300;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+@media (max-device-width: 700px) {
+    #Solution {
+        overflow: hidden;
+        xbackground: red;
+        position: absolute;
+        padding-top: 10vh;
+        top: 12vh;
+        left: 4vw;
+        width: 94vw;
+        height: 70vh;
+        font-weight: 300;
+        font-size: 1.3vh;
+        text-align: center;
+    }
+}
+
+/* make background bigger on hover*/
+
+#Solution_Recycle {
+    left: 2vw;
+    background-image: url(icons/recycle.svg);
+}
+
+#Solution_Walk {
+    left: 16vw;
+    background-image: url(icons/bike.svg);
+}
+
+#Solution_Plastic {
+    left: 30vw;
+    background-image: url(icons/bottle.svg);
+}
+
+#Solution_Fish {
+    left: 44vw;
+    background-image: url(icons/fish.svg);
+}
+
+#Solution_EatLocal {
+    left: 58vw;
+    background-image: url(icons/plant.svg);
+}
+
+#Solution_Energy {
+    left: 72vw;
+    background-image: url(icons/wind.svg);
+}
+
+@media (max-device-width: 700px) {
+    #Solution_Recycle {
+        left: 0vw;
+        background-image: url(icons/recycle.svg);
+    }
+
+    #Solution_Walk {
+        left: 16vw;
+        background-image: url(icons/bike.svg);
+    }
+
+    #Solution_Plastic {
+        left: 32vw;
+        background-image: url(icons/bottle.svg);
+    }
+
+    #Solution_Fish {
+        left: 48vw;
+        background-image: url(icons/fish.svg);
+    }
+
+    #Solution_EatLocal {
+        left: 66vw;
+        background-image: url(icons/plant.svg);
+    }
+
+    #Solution_Energy {
+        left: 82vw;
+        background-image: url(icons/wind.svg);
+    }
+}
+
+#Solution_Greenpeace {
+    left: 25vw;
+    background-image: url(icons/Greenpeace.svg);
+}
+
+#Solution_SeaSheperd {
+    left: 45vw;
+    background-image: url(icons/SeaSheperd.svg);
+}
+
+#Solution_Tips {
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    xbackground: green;
+    position: relative;
+    height: 10vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Solution_Tips div {
+    position: absolute;
+    top: 1vh;
+    width: 12vw;
+    height: 16vh;
+    xbackground-color: blue;
+    xbackground-image: url(icons/recycle.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 60%;
+}
+
+@media (max-device-width: 700px) {
+    #Solution_Tips div {
+        position: absolute;
+        top: -2vh;
+        width: 12vw;
+        height: 20vh;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: 100%;
+    }
+}
+
+#Solution_WorldText {
+    xbackground-color: magenta;
+    font-style: italic;
+    top: 60vh;
+    height: 12vh;
+}
+
+#Solution_WorldIcon {
+    xbackground-color: yellow;
+    background-image: url(icons/world.svg);
+    height: 5vh;
+    margin-top: 5vh;
+    background-repeat: no-repeat;
+    background-size: 80% contain;
+    background-position: center bottom;
+}
+
+#Music {
+    /* position me */
+}
+
+/* currently playing track */
+
+#MusicLabel {
+    font-size: 10vh;
+}
+
+#Year {
+    /* position me */
+    display: block;
+    position: absolute;
+    top: 18vh;
+}
+
+#ErrorTextTitle {
+    visibility: hidden;
+    font-size: 8vh;
+    font-weight: bold;
+    position: absolute;
+    right: 3vw;
+    top: 7vh;
+    width: 80vw;
+    text-align: right;
+}
+
+#ErrorText {
+    visibility: hidden;
+    font-size: 3.5vh;
+    position: absolute;
+    right: 3vw;
+    top: 20vh;
+    width: 75vw;
+    text-align: right;
+}
+
+/* I'm not sure this is visible in all screen sizes... */
+
+#Timeline {
+    display: flex;
+    position: absolute;
+    /* crtq: don't think this is in the middle in every screen */
+    left: 10vw;
+    xxbottom: 5vh;
+    top: 88vh;
+    width: 80vw;
+    height: 3vh;
+    /* layout with flexbox https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+#TimelineContainer {
+    xbackground: red;
+    position: absolute;
+    width: 80vw;
+    left: 10vw;
+    height: 15vh;
+    top: 80vh;
+    xoverflow: hidden;
+}
+
+#YearSlider,
+#YearLabelBox {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 0vw;
+    top: 0vh;
+    height: 8vh;
+    width: 100%;
+    xbackground: yellow;
+}
+
+#YearLabelBox {
+    pointer-events: none;
+    z-index: 2;
+    top: 6vh;
+    xleft: -8vw;
+}
+
+#YearLabel,
+#YearStart,
+#YearEnd {
+    /* this doesn't stop selection, but lets mouse fall through to slider */
+    pointer-events: none;
+    /* stop user from highlighting the labels */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#YearLabel {
+    border-radius: 1vw;
+    text-align: center;
+    --FontHeight: 2vh;
+    position: absolute;
+    width: calc(4 * var(--FontHeight) * 1.0);
+    margin-left: calc(-1 * 4/2 * var(--FontHeight) * 1.0);
+    /* - halfwidth  to center */
+    font-size: var(--FontHeight);
+    height: calc(1.2 * var(--FontHeight));
+    z-index: 2;
+}
+
+#YearStart,
+#YearEnd {
+    --FontHeight: 2vh;
+    width: calc(4 * var(--FontHeight));
+    z-index: 1;
+    position: absolute;
+    top: -0.5vh;
+    font-size: var(--FontHeight);
+    height: calc(2.2 * var(--FontHeight));
+}
+
+#YearStart {
+    text-align: left;
+    left: 1vw;
+}
+
+#YearEnd {
+    text-align: right;
+    right: 1vw;
+}
+
+#YearSlider {
+    xvisibility: visible !important;
+    cursor: pointer;
+    xbackground: blue;
+    -webkit-appearance: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 1vw;
+}
+
+#YearSlider:focus {
+    outline: none;
+}
+
+/* https://stackoverflow.com/questions/16982449/why-isnt-it-possible-to-combine-vendor-specific-pseudo-elements-classes-into-on
+	ANY unknown-style (ie, moz in webkit) means the whole block is ignored, so we duplicate the lot
+*/
+
+#YearSlider::-webkit-slider-runnable-track {
+    height: 0.20vh;
+    /* same as #AnimalCard_Title border */
+    min-height: 2px;
+    border: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    padding: 0px;
+    /* on desktop, we are just white */
+    background-color: white;
+}
+
+#YearSlider::-moz-range-track {
+    height: 0.20vh;
+    /* same as #AnimalCard_Title border */
+    min-height: 2px;
+    border: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    padding: 0px;
+    /* on desktop, we are just white */
+    background-color: white;
+}
+
+/* https://stackoverflow.com/questions/16982449/why-isnt-it-possible-to-combine-vendor-specific-pseudo-elements-classes-into-on
+ ANY unknown-style (ie, moz in webkit) means the whole block is ignored, so we duplicate the lot
+ */
+
+#YearSlider::-webkit-slider-thumb {
+    margin: -2vh 0px 0px 0px;
+    padding: 0px;
+    box-shadow: none;
+    border: none;
+    height: 4vh;
+    width: 0.20vh;
+    min-width: 2px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    /* on desktop, we are just white */
+    background-color: white;
+}
+
+#YearSlider::-moz-range-thumb {
+    margin: -2vh 0px 0px 0px;
+    padding: 0px;
+    box-shadow: none;
+    border: none;
+    height: 4vh;
+    width: 0.20vh;
+    min-width: 2px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    /* on desktop, we are just white */
+    background-color: white;
+}
+
+@media (max-device-width: 700px) {
+
+    /* taller track with background for the line */
+    #YearSlider::-webkit-slider-runnable-track {
+        height: 10vh;
+        xbackground-color: red;
+        background-color: transparent;
+        background-image: url("icons/LineHorz.svg");
+        background-size: 100% 100%;
+        /* same width as slider height */
+        background-position: center;
+    }
+
+    /* wider with background line */
+    #YearSlider::-webkit-slider-thumb {
+        margin: 0px;
+        width: 12vw;
+        height: 10vh;
+        xbackground-color: blue;
+        background-color: transparent;
+        background-image: url("icons/LineVert.svg");
+        background-size: 50% 50%;
+        /* same width as slider height */
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* block out the overflow on the slider */
+    #YearSlider:before,
+    #YearSlider:after {
+        background: black;
+        content: " ";
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 3vh;
+        height: 2vh;
+        width: calc(6vw - (10vh*0.10*0.25));
+        /* width - background/2 */
+    }
+
+    #YearSlider:after {
+        left: auto;
+        right: 0px;
+    }
+}
+
+#Debug_VisibleActors,
+#Debug_RenderedActors,
+#Debug_FrameRate,
+#Debug_RenderStats {
+    z-index: 901;
+    background: black;
+    font-size: 20pt;
+    opacity: 0.6;
+    width: 22vw;
+}
+
+#AboutPage,
+#DisclaimerPage {
+    visibility: hidden;
+    position: absolute;
+    background: black;
+    opacity: 0.9;
+    left: 10vw;
+    width: 80vw;
+    top: 4vh;
+    height: 92vh;
+    font-size: 1.5vh;
+    text-align: center;
+    margin: 0px;
+    padding-top: 11vh;
+    xbackground: red;
+}
+
+#AboutNext {
+    width: 8%;
+    left: 90vw;
+    margin-top: -2vh;
+}
+
+@media (max-device-width: 700px) {
+    #AboutNext {
+        width: 20%;
+        left: 95vw;
+        margin-top: -6vh;
+        margin-left: 14vw;
+    }
+}
+
+#AnimalCardSharingButtons>* {
+    display: inline-block;
+    xxbackground: red;
+    float: right;
+}
+
+/*
+#AnimalCard_Sharing {
+	xxxdisplay: none;
+}
+#Experience 
+{
+	visibility: visible !important;
+}
+	*/
+
+#AppErrorBox {
+    z-index: 999;
+    background: black;
+    opacity: 0.9;
+    position: absolute;
+    width: 70vmin;
+    height: 50vmin;
+    padding: 10vmin;
+    margin: auto auto;
+    border: #c00 dashed 1px;
+    visibility: hidden;
+    overflow: scroll;
+}
